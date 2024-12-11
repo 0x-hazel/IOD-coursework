@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 1</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Basic HTML Form</h2>
+        <form action="/action_page">
+            <table>
+                <tr>
+                    <td><label for="firstName">Given Name:</label></td>
+                    <td><input type="text" id="firstName" name="firstName" value="Jane" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="lastName">Family Name:</label></td>
+                    <td><input type="text" id="lastName" name="lastName" value="Doe" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="age">Age:</label></td>
+                    <td><input type="number" min="1" max="128" id="age" name="age" value="18" required /></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email Address:</label></td>
+                    <td><input type="email" id="email" name="email" required /></td>
+                </tr>
+            </table>
+            <br />
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
