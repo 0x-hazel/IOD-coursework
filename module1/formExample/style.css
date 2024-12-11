@@ -1,0 +1,17 @@
+.container {
+    border: 2px #ddd solid;
+    border-radius: 1em;
+    padding: 2em;
+    background:#eee;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%)translateX(-50%);
+    left:50%
+}
+.submit {
+    width: 25%;
+    margin: 0 37.5%
+}
+input[type="submit"]:hover {
+    cursor: pointer;
+}
