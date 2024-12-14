@@ -8,29 +8,34 @@ body {
 }
 
 header {
-    background-color: blue;
+    background-color: mediumblue;
     color: white;
-    text-align: center;
+    text-align: left;
     padding: 20px;
-}
-
-nav {
-    float: left;
-    background-color: gold;
-    width: 30%;
-    height: 300px;
-    padding: 20px;
+    border-bottom: 2px solid midnightblue;
 }
 
 article {
     background-color: whitesmoke;
-    float: left;
-    width: 70%;
     padding: 20px;
+    flex: 1;
 }
 
-aside {
-    clear: both;
+section {
+    display: flex;
+    flex-direction: row;
+}
+
+ul {
+    list-style-type: square;
+}
+
+.side {
+    background-color: #eee;
+    width: 15em;
+    border: 1px #ddd solid;
+    padding: 1em;
+    height: 300px;
 }
 
 footer {
@@ -39,6 +44,30 @@ footer {
     text-align: center;
     padding: 0.5em;
     font-size: 0.9em;
-    position: absolute;
+    position: fixed;
     bottom: 0;
+    width: 100%
+}
+
+.logo {
+    font-family: serif;
+    color: white;
+}
+
+header > a {
+    text-decoration: none;
+}
+
+.separator {
+    height: 2em;
+}
+
+@media screen and (max-width: 450px) {
+    section {
+        flex-direction: column;
+    }
+    .side {
+        width: 100%;
+        height: fit-content;
+    }
 }
