@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <a href="#"><h1 class="logo">Untitled News Website</h1></a>
+        <a href="#"><h1 class="logo">Untitled Website</h1></a>
     </header>
     <section>
         <nav class="side">
@@ -21,11 +21,32 @@
             </ul>
         </nav>
         <article>
-            <h2>Article heading</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque mi tincidunt, iaculis enim bibendum, dapibus erat. Quisque metus eros, fringilla sed quam id, varius pulvinar sapien. Nam sem sem, gravida rutrum mi ac, aliquam sagittis purus. Cras elit ante, gravida id gravida in, feugiat tempus elit. Aenean a accumsan nulla, sed tincidunt lorem. Donec rhoncus finibus placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque eu dignissim diam, ac dapibus magna. Phasellus at massa id turpis facilisis volutpat. Vivamus a neque eu ante condimentum malesuada vitae et risus. Curabitur aliquam purus in sodales finibus. Vivamus ipsum orci, tristique vel maximus at, tincidunt vitae magna.</p>
-            <p>Curabitur ornare varius purus, eget gravida orci sodales et. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur vel felis lobortis, luctus dolor vel, eleifend elit. Sed in purus vitae ante ultricies vestibulum ac vitae sapien. Duis ac vehicula massa. Maecenas pharetra ipsum mauris. Nam lacinia pretium nulla sit amet sollicitudin. Duis convallis, est in sodales pretium, enim velit porttitor sem, quis malesuada nulla augue in dolor. Nam interdum, arcu quis varius placerat, elit quam congue elit, id pretium neque purus vitae ligula.</p>
-            <p>Ut scelerisque fermentum nunc, vitae pretium augue laoreet eget. Suspendisse ipsum quam, mattis ac tempus ac, lobortis quis velit. Pellentesque eget laoreet odio, ac sodales diam. Pellentesque varius ac tortor ut laoreet. Phasellus feugiat iaculis gravida. Phasellus dapibus egestas enim, sit amet vehicula mi feugiat nec. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla placerat, ex sed gravida interdum, dui orci eleifend ipsum, vel egestas ipsum diam ut leo. Integer posuere dolor odio, sed varius orci rhoncus ac. Sed vel ullamcorper felis, vel efficitur diam. Nulla mi felis, porttitor et ligula quis, dapibus consectetur nisi. Proin vitae neque neque. Sed tincidunt massa sed velit fringilla porttitor. Morbi auctor elit id odio egestas posuere. Nullam sodales dui lacus, a molestie turpis convallis tempus. Nunc eget rutrum eros. </p>
-            <a href="https://www.google.com/">More information...</a>
+            <div class="display">
+                <div id="image" class="image"></div>
+                <div>
+                    <h2>Article heading</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque mi tincidunt, iaculis enim bibendum, dapibus erat. Quisque metus eros, fringilla sed quam id, varius pulvinar sapien. Nam sem sem, gravida rutrum mi ac, aliquam sagittis purus. Cras elit ante, gravida id gravida in, feugiat tempus elit. Aenean a accumsan nulla, sed tincidunt lorem. Donec rhoncus finibus placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque eu dignissim diam, ac dapibus magna. Phasellus at massa id turpis facilisis volutpat. Vivamus a neque eu ante condimentum malesuada vitae et risus. Curabitur aliquam purus in sodales finibus. Vivamus ipsum orci, tristique vel maximus at, tincidunt vitae magna.</p>
+                    <a href="https://www.duckduckgo.com/">More information...</a>
+                </div>
+            </div>
+            <form id="orderForm" style="width:40%;margin:0 auto">
+                <fieldset style="padding:2em;border-radius:1em">
+                    <legend>Shipping Details</legend>
+                    <label>Name:</label>
+                    <div style="display:grid;grid-template-columns:1fr 1fr">
+                        <label for="firstName" hidden>First Name</label>
+                        <label for="lastName" hidden>Last Name</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="First Name" required />
+                        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required />
+                    </div>
+                    <label for="address">Address:</label>
+                    <br />
+                    <input type="text" id="address" name="address" style="width:100%" required />
+                    <br />
+                    <br />
+                    <input type="submit" id="btnSubmit" value="Order Now" style="width:30%;margin:0 35%" />
+                </fieldset>
+            </form>
         </article>
         <aside class="side">
             <h2>Related Articles</h2>
@@ -39,6 +60,38 @@
     <footer>
         <p>@copyright 2050 by nobody. all rights reversed</p>
     </footer>
+    <script>
+        function showDetails(e) {
+            e.preventDefault()
+            let name = document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value
+            let address = document.getElementById('address').value
+            let orderNumber = Math.round(Math.random() * 10000)
+            alert(`Your order (number ${orderNumber}) has been placed and will be shipped to ${name} at ${address}`)
+        }
+        const submitButton = document.getElementById('btnSubmit')
+        function updateFields(e) {
+            let a = document.getElementById('firstName').value
+            let b = document.getElementById('lastName').value
+            let c = document.getElementById('address').value
+            let is_enabled = (a && b && c)
+            if (!is_enabled) {
+                submitButton.setAttribute('disabled', true)
+            } else {
+                submitButton.removeAttribute('disabled')
+            }
+        }
+        document.getElementById('orderForm').addEventListener('submit', (e) => showDetails(e))
+        document.getElementById('firstName').addEventListener('input', (e) => updateFields(e))
+        document.getElementById('lastName').addEventListener('input', (e) => updateFields(e))
+        document.getElementById('address').addEventListener('input', (e) => updateFields(e))
+        updateFields()
+
+        let el = document.createElement('img')
+        el.setAttribute('src', "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Firefox_logo%2C_2019.svg/1024px-Firefox_logo%2C_2019.svg.png")
+        el.style.maxWidth = "100%"
+        el.setAttribute('alt', "The Firefox logo")
+        document.getElementById('image').appendChild(el)
+    </script>
 </body>
 
 </html>
