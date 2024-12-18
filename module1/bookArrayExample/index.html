@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <style>
+        #books {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #eee;
+            border: 1px solid #ddd;
+            padding: 1em;
+            border-radius: 1em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: .5em
+        }
+        #books input[type="text"] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <div id="books">
+            <span id="result"></span>
+            <ul id="list"></ul>
+            <input type="text" placeholder="What book do you want to find?" id="title-input" />
+            <input type="submit" value="Search" />
+        </div>
+    </form>
+    <script>
+        const results = document.getElementById('result')
+        const books = ['the hobbit', 'the lion the witch and the wardrobe', 'alice in wonderland', 'green eggs and ham']
+        const booksList = document.getElementById('list')
+        function fuzzySearch(query, list) {
+            const re = new RegExp(query, 'gi')
+            const results = list.filter((entry) => entry.match(re) !== null)
+            return results
+        }
+        function search(e) {
+            e.preventDefault()
+            const title = document.getElementById('title-input').value
+            booksList.innerHTML = ''
+            if (title === '') {
+                results.innerText = ''
+            } else {
+                const search = fuzzySearch(title, books)
+                if (search.length === 0) {
+                    results.innerText = "Book has not been found"
+                } else {
+                    results.innerText = "Book has been found:"
+                    for (element of search) {
+                        let el = document.createElement('li')
+                        el.innerText = element
+                        booksList.appendChild(el)
+                    }
+                }
+            }
+        }
+        document.getElementById('form').addEventListener('submit', (e) => search(e))
+    </script>
+</body>
+</html>
