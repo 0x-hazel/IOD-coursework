@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Dice Roller</h1>
+    </div>
+    <div class="main">
+        <p class="intro">I need to roll...</p>
+        <div>
+            <input type="number" placeholder="How many?" id="count" min="1" />
+            <select id="faces">
+                <option value="4">d4</option>
+                <option value="6">d6</option>
+                <option value="8">d8</option>
+                <option value="10">d10</option>
+                <option value="12">d12</option>
+                <option value="20">d20</option>
+            </select>
+        </div>
+        <p class="inter">with</p>
+        <select id="advantage">
+            <option value="nil">No modifier</option>
+            <option value="adv">Advantage</option>
+            <option value="dis">Disadvantage</option>
+            <option value="exp">Exploding Dice</option>
+        </select>
+        <button class="roll" onclick="rollDice()">Roll!</button>
+        <hr />
+        <img id="dice" class="dice" hidden />
+        <h2 id="results"></h2>
+        <span id="rolls"></span>
+        <span id="removed"></span>
+        <span id="exploded"></span>
+    </div>
+    <div class="footer">Dice icons by <a href="https://mutant.tech/">Mutant Standard</a>, licensed CC BY-NC-SA 4.0</div>
+    <script src="script.js"></script>
+</body>
+</html>
