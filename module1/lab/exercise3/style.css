@@ -1,0 +1,30 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+img {
+    margin-bottom: 1em;
+}
+button {
+    padding: 1em;
+    border: 2px solid darkgreen;
+    background: greenyellow;
+    border-radius: 1em;
+}
+button:hover {
+    cursor: pointer;
+    background: forestgreen;
+}
+.container {
+    display: flex;
+    min-height: 100vh;
+    align-items: stretch;
+}
+.column {
+    background: goldenrod;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
