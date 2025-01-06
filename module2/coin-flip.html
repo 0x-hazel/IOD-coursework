@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Flip</title>
+    <style>
+        body {
+            width: 50%;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .wide {
+            width: 100%;
+        }
+        .centered {
+            text-align: center;
+            margin: 0 auto
+        }
+        ul .centered {
+            width: fit-content;
+            margin: 0 auto;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Coin Flip</h1>
+    <div id="input-data" class="grid">
+        <div id="game-count">
+            <div>
+                <input type="radio" id="5" value="5" name="count" checked>
+                <label for="5">5 Flips</label>
+            </div>
+            <div>
+                <input type="radio" id="10" value="10" name="count">
+                <label for="10">10 Flips</label>
+            </div>
+        </div>
+        <div id="players">
+            <ul id="players-list">
+            </ul>
+            <div class="grid">
+                <input type="text" id="player-name" placeholder="Player Name" />
+                <select id="player-choice">
+                    <option value="" selected disabled>Select</option>
+                    <option>Heads</option>
+                    <option>Tails</option>
+                </select>
+            </div>
+            <button class="wide" onclick="addPlayer()">Add Player</button>
+        </div>
+    </div>
+    <hr />
+    <button id="flip" class="wide" onclick="flipCoin()">Flip!</button>
+    <div class="centered">
+        <div id="warning"></div>
+        <div id="result"></div>
+        <h2 id="final-result"></h2>
+        <span id="winners" hidden>Congratulations to:</span>
+        <ul class="centered" id="winning-players"></ul>
+    </div>
+    <script>
+        const storedResults = []
+        const gamePlayers = []
+        function flipCoin() {
+            storedResults.length = 0
+            document.getElementById('result').innerText = ''
+            document.getElementById('final-result').innerText = ''
+            document.getElementById('winners').setAttribute('hidden', 'true')
+            for (let el of document.getElementById('winning-players').children) {
+                el.remove()
+            }
+            document.getElementById('flip').setAttribute('disabled', 'true')
+            const number = Number(document.querySelector('input[name=count]:checked').value)
+            document.getElementById('warning').innerText = "The dice are cast..."
+            for (let i = 0; i < number; i++) {
+                setTimeout(() => _flip(), 1000 * i)
+            }
+            setTimeout(() => {
+                const heads = storedResults.reduce(
+                    (prev, curr) => ((curr === 'Heads')? prev + 1 : prev),
+                    0
+                )
+                const winner = (heads > (number - heads))? 'Heads' : 'Tails'
+                document.getElementById('final-result').innerText = `${winner} wins!`
+                document.getElementById('winners').removeAttribute('hidden')
+                const winningPlayers = document.getElementById('winning-players')
+                for (let player of gamePlayers) {
+                    if (player.picked !== winner) {
+                        continue
+                    }
+                    const el = document.createElement('li')
+                    el.innerText = player.name
+                    winningPlayers.appendChild(el)
+                }
+                document.getElementById('flip').removeAttribute('disabled')
+            }, number * 1000)
+        }
+        function _flip() {
+            const result = Math.random() < 0.5 ? "Heads" : "Tails"
+            storedResults.push(result)
+            document.getElementById('result').innerText = storedResults.join(', ')
+        }
+        function addPlayer() {
+            const players = document.getElementById('players-list')
+            let el = document.createElement('li')
+            const name = document.getElementById('player-name')
+            const value = document.getElementById('player-choice')
+            if (!name.value) {
+                alert("Enter a name")
+                return
+            }
+            if (!value.value) {
+                alert("Pick a result")
+                return
+            }
+            el.innerText = `${name.value} picked ${value.value}`
+            gamePlayers.push({name: name.value, picked: value.value})
+            players.appendChild(el)
+            name.value = ''
+            value.value =''
+        }
+    </script>
+</body>
+</html>
