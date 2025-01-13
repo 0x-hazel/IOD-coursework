@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="coin_flip_result"></div>
+    <script>
+        const constants = {
+            HEADS: "Heads",
+            TAILS: "Tails"
+        }
+
+        function flip() {
+            return Math.random() < .5 ? constants.HEADS : constants.TAILS
+        }
+        function flipN(n) {
+            const output = document.getElementById('coin_flip_result')
+            output.innerText = ''
+            const callback = (n) => {
+                const flipResult = flip()
+                output.innerText += ((output.innerText)? `, ${flipResult}` : flipResult)
+                if (n  > 1) {
+                    setTimeout(() => callback(n - 1), 1000)
+                }
+            }
+            setTimeout(() => callback(n), 1000)
+        }
+        flipN(10)
+    </script>
+</body>
+</html>
