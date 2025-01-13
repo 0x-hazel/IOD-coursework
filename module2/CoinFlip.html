@@ -87,8 +87,8 @@
                 )
                 const winner = (heads > (number - heads))? 'Heads' : 'Tails'
                 document.getElementById('final-result').innerText = `${winner} wins!`
-                document.getElementById('winners').removeAttribute('hidden')
                 const winningPlayers = document.getElementById('winning-players')
+                let dirty = false
                 for (let player of gamePlayers) {
                     if (player.picked !== winner) {
                         continue
@@ -96,6 +96,10 @@
                     const el = document.createElement('li')
                     el.innerText = player.name
                     winningPlayers.appendChild(el)
+                    dirty = true
+                }
+                if (dirty) {
+                    document.getElementById('winners').removeAttribute('hidden')
                 }
                 document.getElementById('flip').removeAttribute('disabled')
             }, number * 1000)
