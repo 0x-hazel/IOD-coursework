@@ -2,11 +2,15 @@
     --accent-purple: rgb(64, 0, 64);
 }
 
+html {
+    overflow-x: hidden;
+}
 body {
     font-family: sans-serif;
     margin: 0;
     background-color: plum;
-    /* overflow: hidden; */
+    overflow-x: hidden;
+    width: 100vw;
 }
 
 .page {
@@ -115,14 +119,11 @@ a {
     margin-bottom: .5em;
 }
 
+.content h2:first-of-type {
+    margin-top: .5em;
+}
+
 @media screen and (max-width: 1074px) {
-    html {
-        overflow-x: hidden;
-    }
-    body {
-        overflow-x: hidden;
-        width: 100vw;
-    }
     .page {
         flex-direction: column;
     }
@@ -138,9 +139,6 @@ a {
         border-left: 4px solid purple;
         border-top: 4px solid purple;
         border-right: 4px solid purple;
-    }
-    .content h2:first-of-type {
-        margin-top: .5em;
     }
     .content {
         width: auto;
