@@ -123,7 +123,14 @@ a {
     margin-top: .5em;
 }
 
-@media screen and (max-width: 1074px) {
+@media screen and (max-width: 1155px) {
+    .content {
+        width: auto;
+        margin: 2em 2em 0 2em;
+    }
+}
+
+@media screen and (max-width: 645px) {
     .page {
         flex-direction: column;
     }
