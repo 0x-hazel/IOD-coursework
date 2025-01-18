@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .section {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <!-- works like <a href="/index.html">Home</a> -->
+      <a href=".">Home</a>
+    </nav>
+  </header>
+
+  <main>
+    <form method="POST" action="form.html">
+      <div>
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" required />
+      </div>
+      <div>
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" required />
+      </div>
+      <div>
+        <span class="section">Favourite coding language</span>
+        <div>
+          <input type="radio" name="favLanguage" id="fortran" value="fortran">
+          <label for="fortran">FORTRAN</label>
+        </div>
+        <div>
+          <input type="radio" name="favLanguage" id="algol" value="algol">
+          <label for="algol">ALGOL</label>
+        </div>
+        <div>
+          <input type="radio" name="favLanguage" id="bcpl" value="bcpl">
+          <label for="bcpl">BCPL</label>
+        </div>
+      </div>
+      <div>
+        <span class="section">Type of vehicle</span>
+        <div>
+          <input type="checkbox" id="plane" value="plane" name="vehicle" />
+          <label for="plane">Plane</label>
+        </div>
+        <div>
+          <input type="checkbox" id="train" value="train" name="vehicle" />
+          <label for="train">Train</label>
+        </div>
+        <div>
+          <input type="checkbox" id="automobile" value="automobile" name="vehicle" />
+          <label for="automobile">Automobile</label>
+        </div>
+      </div>
+      <div>
+        <label for="brand" class="section">What brand of vehicle?</label>
+        <select name="brand" id="brand">
+          <option value="airbus">Airbus</option>
+          <option value="alstom">Alstom</option>
+          <option value="toyota">Toyota</option>
+        </select>
+      </div>
+      <button type="submit">Submit form</button>
+    </form>    
+  </main>
+
+  <footer>Copyright &copy; 2024</footer>
+</body>
+
+</html>
