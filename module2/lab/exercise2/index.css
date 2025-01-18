@@ -1,0 +1,86 @@
+/* I. Selectors */
+/* Put styles for questions 1.1, 1.2, 1.3 and 1.4 here */
+article {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid black;
+}
+.style-me1 {
+    color: red;
+}
+#style-me2 {
+    color: blue;
+}
+#style-me2.style-me1 {
+    color: purple;
+}
+
+/* Put styles for questions 2.1 and 2.2 here */
+.my-descendants-are-styled p {
+    background-color: red;
+}
+.my-children-are-styled > p {
+    background-color: lightgreen;
+}
+
+/* II. Box model and common properties */
+/* Put styles for questions 1-8 here */
+.box {
+    background-color: lightpink;
+    margin: 10px;
+    padding: 8px 4px;
+    width: 90%;
+    height: 20vh !important;
+    border: 1px solid black;
+    box-sizing: content-box;
+    overflow-y: auto;
+    outline: 10px solid plum;
+    border-radius: 8px;
+    background: url("assets/images/img1.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* Because it seems necessary for readability */
+    color: whitesmoke;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/* III. Positioning */
+/* Put styles for questions 1-3 here */
+.position-absolute {
+    position: absolute;
+    top: 20px;
+    background-color: red;
+    left: 50px;
+}
+.position-relative {
+    position: relative;
+    background-color: cyan;
+}
+.position-sticky {
+    position: sticky;
+    background-color: lime;
+    bottom: 0;
+}
+
+/* IV. Styling text */
+/* Put styles for questions 1-10 here */
+.text-style {
+    color: purple;
+    font-size: large;
+    line-height: 2em;
+    font-weight: 800;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    letter-spacing: .1em;
+    word-spacing: 10px;
+    text-transform: uppercase;
+    text-decoration: wavy underline 4px;
+}
+
+
+/* V. Styling links */
+/* Put styles for questions 1-3 here */
+
+
+/* VI. calc() */
+/* Put styles for questions 1-3 here */
