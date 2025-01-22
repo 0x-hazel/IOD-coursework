@@ -1,0 +1,87 @@
+* {
+    --brand-purple: #b200ff;
+}
+body {
+    margin: 0;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: pink;
+    padding: 1em;
+    border-bottom: 2px solid lightpink;
+}
+
+#boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.box {
+    background-color: pink;
+}
+
+.box-extra {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+#logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--brand-purple);
+}
+#main-menu {
+    width: 250px;
+    align-content: center;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: yellow;
+    align-items: center;
+}
+.menu a {
+    text-decoration: none;
+    color: yellow;
+    font-weight: bold;
+    text-shadow: -1px -1px 0 var(--brand-purple), 1px -1px 0 var(--brand-purple), -1px 1px 0 var(--brand-purple), 1px 1px 0 var(--brand-purple);
+}
+
+#header-title {
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    margin: 0;
+    text-shadow: -1px -1px 0 var(--brand-purple), 1px -1px 0 var(--brand-purple), -1px 1px 0 var(--brand-purple), 1px 1px 0 var(--brand-purple);
+}
+main {
+    max-width: 80%;
+    margin: 1em auto;
+}
+.box {
+    border-radius: 1em;
+    min-width: 300px;
+    min-height: 300px;
+    border: 2px solid lightpink;
+    background: pink;
+    margin: 1em;
+}
+.section-title {
+    text-align: center;
+}
+#branding {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    align-items: center;
+}

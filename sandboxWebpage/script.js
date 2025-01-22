@@ -1,27 +1,6 @@
-function Product(section, name, price) {
-    this.section = section
-    this.name = name
-    this.price = price
-    this.toString = () => `<td>${this.name}</td><td>$${this.price.toFixed(2)}</td>`
-}
-
-const products = [
-    new Product('single', 'Vanilla', 5.95),
-    new Product('single', 'Chocolate', 5.95),
-    new Product('single', )
-]
-
 const exampleLayoutConfig = {
-    title: "Ice Cream",
+    title: page,
     navOptions: [
-        {
-            title: "HOME",
-            href: "configBuilderExample.html",
-        },
-        {
-            title: "MENU",
-            href: "menu.html"
-        },
         {
             title: "IN YOUR AREA",
             href: "#in-your-area",
@@ -56,6 +35,20 @@ const exampleLayoutConfig = {
     ],
 // MENU, IN YOUR AREA, ABOUT US
 };
+switch (page) {
+    case 'Home':
+        exampleLayoutConfig.navOptions.splice(0, 0,         {
+            title: "MENU",
+            href: "menu.html"
+        })
+        break;
+    case 'Menu':
+        exampleLayoutConfig.navOptions.splice(0, 0, {
+            title: "HOME",
+            href: "configBuilderExample.html",
+        })
+        break;
+}
 
 // CREATE HEADER FOR THE PAGE
 document.getElementById("header-title").textContent =
