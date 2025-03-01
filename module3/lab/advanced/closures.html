@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="h1_test"></div>
+    <div id="h2_test"></div>
+    <script>
+        function makeHeading(hTag) { // every call to makeHeading could have different values for hTag
+            return function(title) { // unnamed closure function, can access value of hTag when created
+                return `<${hTag}>${title}</${hTag}>`
+            }
+        }
+        const getH1 = makeHeading('h1') // sets hTag to h1, creates new instance of closure in getH1
+        const getH2 = makeHeading('h2') // sets hTag to h2, creates separate instance of closure in getH2
+        //console.log( getH1('Heading 1') ) // sets title to Heading 1 inside <h1>: <h1>Heading 1</h1>
+        //console.log( getH2('Heading 2') ) // sets title to Heading 2 inside <h2>: <h2>Heading 2</h2>
+        const h1Element = document.getElementById('h1_test')
+        h1Element.innerHTML = getH1("Something here")
+
+        const h2Element = document.getElementById('h2_test')
+        h2Element.innerHTML = getH2('Something else')
+    </script>
+</body>
+</html>

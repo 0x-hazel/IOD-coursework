@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Test</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            border: 1px solid black;
+            margin: 3px;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas')
+        canvas.width = window.innerWidth - 10
+        canvas.height = window.innerHeight - 10
+        let context = canvas.getContext('2d')
+
+        function Rectangle(posX, posY, width, height, colour) {
+            this.x = posX
+            this.y = posY
+            this.width = width
+            this.height = height
+            this.colour = colour
+            this.draw = (context) => {
+                context.fillStyle = this.colour
+                context.fillRect(this.x, this.y, this.width, this.height)
+            }
+            this.clear = (context) => {
+                
+            }
+        }
+
+        const newRectangle = new Rectangle(10, 10, 150, 100, 'red')
+        newRectangle.draw(context)
+
+        const STEP = 10
+        let xPosDelta, yPosDelta;
+
+        document.addEventListener('keydown', (event) => {
+            switch (event.key) {
+                case 'w':
+                    newRectangle.y -= STEP
+                    break;
+                case 'a':
+                    newRectangle.x -= STEP
+                    break;
+                case 's':
+                    newRectangle.y += STEP
+                    break;
+                case 'd':
+                    newRectangle.x += STEP
+                    break;
+            }
+            context.clearRect(0, 0, canvas.width, canvas.height)
+            newRectangle.draw(context)
+        })
+
+    </script>
+</body>
+</html>
