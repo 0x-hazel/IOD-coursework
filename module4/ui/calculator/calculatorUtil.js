@@ -29,6 +29,9 @@ function calcPress(op) {
     equals = false
     switch (op) {
         case 0:
+            display = display + '0'
+            displayText.innerText = display
+            break;
         case 1:
         case 2:
         case 3:
