@@ -1,28 +1,22 @@
 const express = require("express");
+const calcController = require("../controllers/calculatorController");
+
 const router = express.Router();
 
 router.get("/add", (req, res) => {
-    let numA = Number(req.query?.a);
-    let numB = Number(req.query?.b);
-    res.send({ result: numA + numB });
+    res.send(calcController.perform(req, (a, b) => a + b));
 });
 
 router.get("/sub", (req, res) => {
-    let numA = Number(req.query?.a);
-    let numB = Number(req.query?.b);
-    res.send({ result: numA - numB });
+    res.send(calcController.perform(req, (a, b) => a - b));
 });
 
 router.get("/mul", (req, res) => {
-    let numA = Number(req.query?.a);
-    let numB = Number(req.query?.b);
-    res.send({ result: numA * numB });
+    res.send(calcController.perform(req, (a, b) => a * b));
 });
 
 router.get("/div", (req, res) => {
-    let numA = Number(req.query?.a);
-    let numB = Number(req.query?.b);
-    res.send({ result: numA / numB });
+    res.send(calcController.perform(req, (a, b) => a / b));
 });
 
 module.exports = router;
