@@ -4,5 +4,7 @@ function perform(req, callback) {
     if (a === undefined || b === undefined) {
         return { error: "Please provide arguments (a and b)" };
     }
-    return { result: callback(a, b) };
+    return { result: callback(Number(a), Number(b)) };
 }
+
+module.exports = { perform };
