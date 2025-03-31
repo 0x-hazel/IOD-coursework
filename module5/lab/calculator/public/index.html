@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="two-col">
+        <div>
+            <p><label for="numA">Number 1</label></p>
+            <input type="number" id="numA" name="numA" value="0" />
+        </div>
+        <div>
+            <p><label for="numB">Number 2</label></p>
+            <input type="number" id="numB" name="numB" value="0" />
+        </div>
+    </div>
+    <hr />
+    <div class="panel">
+        <button onclick="performCalculation('add')">Add</button>
+        <button onclick="performCalculation('sub')">Subtract</button>
+        <button onclick="performCalculation('mul')">Multiply</button>
+        <button onclick="performCalculation('div')">Divide</button>
+    </div>
+    <p id="result"></p>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+body {
+    width: 50%;
+    margin: 0 auto;
+}
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.panel {
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+}
+.panel > button {
+    flex: 1;
+}

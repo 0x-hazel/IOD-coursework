@@ -4,8 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css" />
 </head>
 <body>
     <h1>Simple Calculator</h1>
+    <div id="calculator-container">
+        <div id="calculator-display">
+            <p id="display-text">0</p>
+        </div>
+        <div id="calculator-numpad">
+            <button class="calc-button" onclick="calcPress(7)">7</button>
+            <button class="calc-button" onclick="calcPress(8)">8</button>
+            <button class="calc-button" onclick="calcPress(9)">9</button>
+            <button class="calc-button op" onclick="calcPress('+')">+</button>
+            <button class="calc-button" onclick="calcPress(4)">4</button>
+            <button class="calc-button" onclick="calcPress(5)">5</button>
+            <button class="calc-button" onclick="calcPress(6)">6</button>
+            <button class="calc-button op" onclick="calcPress('-')">-</button>
+            <button class="calc-button" onclick="calcPress(1)">1</button>
+            <button class="calc-button" onclick="calcPress(2)">2</button>
+            <button class="calc-button" onclick="calcPress(3)">3</button>
+            <button class="calc-button op" onclick="calcPress('*')">x</button>
+            <button class="calc-button" onclick="calcPress(0)">0</button>
+            <button class="calc-button" onclick="calcPress('.')">.</button>
+            <button class="calc-button equals" onclick="calcEquals()">=</button>
+            <button class="calc-button op" onclick="calcPress('/')">/</button>
+        </div>
+    </div>
+    <script src="calculatorUtil.js"></script>
 </body>
 </html>

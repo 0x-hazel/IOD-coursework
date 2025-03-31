@@ -1,0 +1,161 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "My Calculator Project",
+        "description": "My User Project Application API",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "tags": [
+        {
+        "name": "Calculator",
+        "description": "API for Calculus in the system"
+        }
+    ],
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+        "/calc/add": {
+            "get": {
+                "tags": [
+                    "Addition Services"
+                ],
+                "summary": "Add two numbers together and return the result",
+                "parameters": [
+                    {
+                        "name": "a",
+                        "in": "query",
+                        "description": "The first number in the calculation"
+                    },
+                    {
+                        "name": "b",
+                        "in": "query",
+                        "description": "The second number in the calculation"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Adds the two numbers together",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "integer",
+                                    "description": "The result of the addition operation"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/calc/sub": {
+            "get": {
+                "tags": [
+                    "Subtraction Services"
+                ],
+                "summary": "Subtract one number from the other and return the result",
+                "parameters": [
+                    {
+                        "name": "a",
+                        "in": "query",
+                        "description": "The first number in the calculation"
+                    },
+                    {
+                        "name": "b",
+                        "in": "query",
+                        "description": "The second number in the calculation"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Subtracts one number from the other",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "integer",
+                                    "description": "The result of the subtraction operation"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/calc/mul": {
+            "get": {
+                "tags": [
+                    "Multiplication Services"
+                ],
+                "summary": "Multiply one number by the other and return the result",
+                "parameters": [
+                    {
+                        "name": "a",
+                        "in": "query",
+                        "description": "The first number in the calculation"
+                    },
+                    {
+                        "name": "b",
+                        "in": "query",
+                        "description": "The second number in the calculation"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Multiply one number by the other",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "integer",
+                                    "description": "The result of the multiplication operation"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/calc/div": {
+            "get": {
+                "tags": [
+                    "Division Services"
+                ],
+                "summary": "Divide one number by the other and return the result",
+                "parameters": [
+                    {
+                        "name": "a",
+                        "in": "query",
+                        "description": "The first number in the calculation"
+                    },
+                    {
+                        "name": "b",
+                        "in": "query",
+                        "description": "The second number in the calculation"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Divide one number by the other",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "integer",
+                                    "description": "The result of the division operation"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
