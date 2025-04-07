@@ -1,0 +1,13 @@
+.MuiButtonGroup-firstButton {
+    border-bottom-left-radius: 0 !important;
+}
+
+.MuiButtonGroup-lastButton {
+    border-bottom-right-radius: 0 !important;
+}
+
+.MuiPaper-rounded {
+    border-top-right-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+    padding: .5em;
+}
